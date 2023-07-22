@@ -28,12 +28,12 @@ const CartSlice = createSlice({
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
 
-        toast.success(`Item QTY Increased`);
+        toast.success(`La Quantité de l'article augmentée`);
       } else {
         const temp = { ...action.payload, cartQuantity: 1 };
         state.cartItems.push(temp);
 
-        toast.success(`${action.payload.title} added to Cart`);
+        toast.success(`${action.payload.title} ajouter au panié`);
       }
 
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
@@ -47,7 +47,7 @@ const CartSlice = createSlice({
       state.cartItems = removeItem;
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
 
-      toast.success(`${action.payload.title} Removed From Cart`);
+      toast.success(`${action.payload.title} Supprimer du panié`);
     },
 
     setIncreaseItemQTY: (state, action) => {
@@ -58,7 +58,7 @@ const CartSlice = createSlice({
       if (itemIndex >= 0) {
         state.cartItems[itemIndex].cartQuantity += 1;
 
-        toast.success(`Item QTY Increased`);
+        toast.success(`La Quantité de l'article augmentée`);
       }
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },
@@ -71,14 +71,14 @@ const CartSlice = createSlice({
       if (state.cartItems[itemIndex].cartQuantity > 1) {
         state.cartItems[itemIndex].cartQuantity -= 1;
 
-        toast.success(`Item QTY Decreased`);
+        toast.success(`La Quantité de l'article diminuée`);
       }
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },
 
     setClearCartItems: (state, action) => {
       state.cartItems = [];
-      toast.success(`Cart Cleared`);
+      toast.success(`Panier vidé`);
       localStorage.setItem("cart", JSON.stringify(state.cartItems));
     },
 
